@@ -169,6 +169,7 @@ function move(){
 //Вызываем функцию
 move();
 */
+
 // components
 function testWebP(callback) {
 
@@ -558,6 +559,28 @@ $(document).ready(function () {
     });
 });
 
+
+$(document).ready(function () {
+    const mediaQuerylgMin = window.matchMedia('(min-width: 992px)');
+
+    // mediaQuerylgMin
+    mediaQuerylgMin.addListener(handleTabletChange);
+    function handleTabletChange(e) {
+        if (e.matches) {
+            var scene = document.getElementById('scene');
+            var parallaxInstance = new Parallax(scene);
+        }
+
+        else {
+
+        }
+    }
+
+    if (mediaQuerylgMin.matches) {
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene);
+    }
+});
 /*
 $(document).ready(function () {
     $('.tabs-triggers__item').click(function (e) {
@@ -593,23 +616,4 @@ $(document).ready(function () {
     });
 })
 
-$(document).ready(function () {
-    mediaQueryMdMin = window.matchMedia('(min-width: 768px)');
-    
-    // mediaQueryMdMin
-    mediaQueryMdMin.addListener(handleTabletChange);
-    function handleTabletChange(e) {
-        if (e.matches) {
-
-        }
-
-        else {
-
-        }
-    }
-
-    if (mediaQueryMdMin.matches) {
-
-    }
-});
 */

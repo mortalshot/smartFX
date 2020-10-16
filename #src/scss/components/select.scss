@@ -15,6 +15,7 @@
 
     &__value {
         display: flex;
+        font-weight: 500;
         font-size: 14px;
         height: 36px;
         padding: 0px 6px 0 12px;
@@ -46,6 +47,7 @@
     }
 
     &__options {
+        font-weight: 500;
         font-size: 14px;
         color: $Black;
         display: none;
@@ -78,7 +80,7 @@
         z-index: 5;
 
         .select__value::before {
-            transform: rotate(-180deg);
+            transform: rotate(0);
         }
 
         .select__options {

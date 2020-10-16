@@ -1,11 +1,12 @@
 $(document).ready(function () {
-    mediaQueryMdMin = window.matchMedia('(min-width: 768px)');
-    
-    // mediaQueryMdMin
-    mediaQueryMdMin.addListener(handleTabletChange);
+    const mediaQuerylgMin = window.matchMedia('(min-width: 992px)');
+
+    // mediaQuerylgMin
+    mediaQuerylgMin.addListener(handleTabletChange);
     function handleTabletChange(e) {
         if (e.matches) {
-
+            var scene = document.getElementById('scene');
+            var parallaxInstance = new Parallax(scene);
         }
 
         else {
@@ -13,7 +14,8 @@ $(document).ready(function () {
         }
     }
 
-    if (mediaQueryMdMin.matches) {
-
+    if (mediaQuerylgMin.matches) {
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene);
     }
 });

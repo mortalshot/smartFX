@@ -1,3 +1,67 @@
 .title {
-    
+    &-h1 {
+        font-weight: 900;
+        font-size: 48px;
+        line-height: 66px;
+        letter-spacing: 2.3px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(20px + 28 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(66 / 48);
+        }
+    }
+
+    &-h2 {
+        font-weight: 900;
+        font-size: 56px;
+        line-height: 70px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(20px + 36 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(70 / 56);
+        }
+    }
+
+    &-h3 {
+        font-weight: 900;
+        font-size: 32px;
+        line-height: 1;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(16px + 16 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+        }
+    }
+
+    &-h4 {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(16px + 8 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(29 / 24);
+        }
+    }
+
+    &-h5 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 21px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(16px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(21 / 18);
+        }
+    }
+
+    &-h6 {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(14px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(19 / 16);
+        }
+    }
 }

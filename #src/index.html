@@ -1,10 +1,36 @@
-	@@include('html-components/_header.html', {
-		"title": "Page name"
-	})
+@@include('html-components/_header.html', {
+"title": "SmartFX"
+})
 
-	<main class="site__main">
+<main class="site__main">
+	<section class="firstscreen">
+		<div class="firstscreen__container container">
+			<div class="firstscreen__row row">
+				<div class="firstscreen__content">
+					<h1 class="firstscreen__title title-h1">
+						Комплексное решение для организации
+						<span>FX бизнеса</span>
+					</h1>
+					<div class="firstscreen__text">Система адаптирована для работы банков на международном валютном
+						рынке и учитывает специфику российских и зарубежных рынков</div>
+					<a href="" class="btn-bg">Запросить демо</a>
+				</div>
+				<div class="firstscreen__image">
+					<img src="img/firstscreen/1.png" alt="">
+				</div>
+			</div>
+			<div class="firstscreen__parallax">
+				<ul id="scene">
+					<li class="layer" data-depth=".2"><img src="img/firstscreen/shape1.svg" alt=""></li>
+					<li class="layer" data-depth="-.2"><img src="img/firstscreen/shape2.svg" alt=""></li>
+					<li class="layer" data-depth="2"><img src="img/firstscreen/shape3.svg" alt=""></li>
+					<li class="layer" data-depth="-2"><img src="img/firstscreen/shape4.svg" alt=""></li>
+					<li class="layer" data-depth="-.3"><img src="img/firstscreen/shape5.svg" alt=""></li>
+					<li class="layer" data-depth="1"><img src="img/firstscreen/shape6.svg" alt=""></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</main>
 
-	</main>
-
-	@@include('html-components/_footer.html')
-
+@@include('html-components/_footer.html')

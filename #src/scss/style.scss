@@ -18,3 +18,103 @@
 
 // === Pages ===
 @import "pages/index";
+
+.firstscreen {
+	overflow-y: hidden;
+	
+	// .firstscreen__container
+	&__container {
+		position: relative;
+	}
+
+	&__parallax {
+		position: absolute;
+		top: -98px;
+
+		@media screen and (max-width: 991px) {
+			display: none;
+		}
+	}
+
+	// .firstscreen__row
+	&__row {
+		min-height: 618px;
+		background: #142745 url(../img/firstscreen/bg.svg) no-repeat center;
+		display: flex;
+		align-items: center;
+		padding: 20px 35px 20px 102px;
+
+		@media screen and (max-width: 1200px) {
+			padding: 20px 35px;
+		}
+		@media screen and (max-width: 767px) {
+			padding: 20px;
+			flex-direction: column;
+		}
+		@media screen and (max-width: 575px) {
+			min-height: inherit;
+		}
+		@media screen and (max-width: 450px) {
+			margin: 0 -20px;
+		}
+	}
+
+	// .firstscreen__content
+	&__content {
+		z-index: 1;
+
+		@media screen and (max-width: 767px) {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		@media screen and (max-width: 575px) {
+			margin-bottom: 30px;
+		}
+	}
+
+	// .firstscreen__title
+	&__title {
+		color: $White;
+		margin-bottom: 48px;
+
+		@media screen and (max-width: 991px) {
+			margin-bottom: 30px;
+		}
+		@media screen and (max-width: 575px) {
+			margin-bottom: 20px;
+		}
+
+		span {
+			display: inline-block;
+			color: $red;
+		}
+	}
+
+	// .firstscreen__text
+	&__text {
+		max-width: 391px;
+		margin-bottom: 48px;
+		line-height: 23px;
+		color: $White;
+
+		@media screen and (max-width: 991px) {
+			margin-bottom: 30px;
+		}
+		@media screen and (max-width: 767px) {
+			max-width: inherit;
+		}
+		@media screen and (max-width: 575px) {
+			margin-bottom: 20px;
+		}
+	}
+
+	// .firstscreen__image
+	&__image {
+		flex: 0 0 48.5%;
+		z-index: 1;
+
+		@media screen and (max-width: 991px) {
+			flex: 0 0 40%;
+		}
+	}
+}

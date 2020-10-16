@@ -20,6 +20,7 @@ body {
 
     &__main {
         padding: $size-header-height 0px 0px 0px;
+        overflow-x: hidden;
 
         @media screen and (max-width: 767px) {
             padding: $size-header-height-mobile 0px 0px 0px;
