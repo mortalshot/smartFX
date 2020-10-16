@@ -1,16 +1,21 @@
 // === Sizes ===
-$size-container: 1250px;
-$size-layout-desktop: 1440;
-$size-header-height: 89px;
-$size-header-height-mobile: 52px;
+$size-container: 1248px;
+$layoutDesktop: 1440;
+$layoutMobile: 375;
+$size-header-height: 98px;
+$size-header-height-mobile: 70px;
 
 // === Font ===
 $fontSize: 16px;
-$fontColor: #1D1F22;
+$fontColor: #19202b;
 $fontWeight: 400;
-$font: 'Open Sans';
-$fontSecond: 'Mulish', $font;
-$lineHeight: 140%;
+$font: "Gilroy";
+$lineHeight: 120%;
 
 // === Color ===
-
+$Black: #19202b;
+$Black_2: #142745;
+$White: #fff;
+$red: #e62d3c;
+$purple: #6a69a9;
+$blueDark: #0a0b11;
