@@ -2,23 +2,21 @@
     &-h1 {
         font-weight: 900;
         font-size: 48px;
-        line-height: 66px;
-        letter-spacing: 2.3px;
+        line-height: 60px;
 
         @media screen and (max-width: $layoutDesktop + "px") {
             font-size: calc(20px + 28 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
-            line-height: calc(66 / 48);
+            line-height: calc(60 / 48);
         }
     }
 
     &-h2 {
         font-weight: 900;
         font-size: 56px;
-        line-height: 70px;
+        line-height: 1;
 
         @media screen and (max-width: $layoutDesktop + "px") {
             font-size: calc(20px + 36 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
-            line-height: calc(70 / 56);
         }
     }
 

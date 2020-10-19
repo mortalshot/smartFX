@@ -17,104 +17,157 @@
 @import "components/index";
 
 // === Pages ===
-@import "pages/index";
+@import "sections/index";
 
-.firstscreen {
-	overflow-y: hidden;
-	
-	// .firstscreen__container
+// TODO: need do animation
+.functions {
+	background: $Black_2 url(../img/functions/bg.svg) no-repeat center top;
+	padding: 59px 0;
+
+	@media screen and (max-width: 450px) {
+		padding: 30px 0;
+	}
+
+	// .functions__container
 	&__container {
-		position: relative;
 	}
 
-	&__parallax {
-		position: absolute;
-		top: -98px;
-
-		@media screen and (max-width: 991px) {
-			display: none;
-		}
+	// .functions__tasks
+	&__tasks {
 	}
 
-	// .firstscreen__row
-	&__row {
-		min-height: 618px;
-		background: #142745 url(../img/firstscreen/bg.svg) no-repeat center;
+	// .functions__skrolltriger
+	&__skrolltriger {
+	}
+}
+.tasks {
+	padding: 57px 0;
+	border-radius: 8px;
+	background-color: $White;
+
+	@media screen and (max-width: 575px) {
+		padding: 30px 0;
+	}
+
+	&__container {
+		max-width: 1070px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	// .tasks__top
+	&__top {
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
-		padding: 20px 35px 20px 102px;
-
-		@media screen and (max-width: 1200px) {
-			padding: 20px 35px;
-		}
-		@media screen and (max-width: 767px) {
-			padding: 20px;
-			flex-direction: column;
-		}
-		@media screen and (max-width: 575px) {
-			min-height: inherit;
-		}
-		@media screen and (max-width: 450px) {
-			margin: 0 -20px;
-		}
-	}
-
-	// .firstscreen__content
-	&__content {
-		z-index: 1;
-
-		@media screen and (max-width: 767px) {
-			text-align: center;
-			margin-bottom: 40px;
-		}
-		@media screen and (max-width: 575px) {
-			margin-bottom: 30px;
-		}
-	}
-
-	// .firstscreen__title
-	&__title {
-		color: $White;
-		margin-bottom: 48px;
+		margin-bottom: 50px;
 
 		@media screen and (max-width: 991px) {
 			margin-bottom: 30px;
 		}
 		@media screen and (max-width: 575px) {
+			display: block;
 			margin-bottom: 20px;
 		}
+	}
 
-		span {
-			display: inline-block;
-			color: $red;
+	// .tasks__title
+	&__title {
+		@media screen and (max-width: 575px) {
+			margin-bottom: 15px;
+
+			br {
+				display: none;
+			}
 		}
 	}
 
-	// .firstscreen__text
-	&__text {
-		max-width: 391px;
-		margin-bottom: 48px;
-		line-height: 23px;
-		color: $White;
+	// .tasks__subtitle
+	&__subtitle {
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
+		max-width: 225px;
 
-		@media screen and (max-width: 991px) {
-			margin-bottom: 30px;
+		@media screen and (min-width: 992px) {
+			margin-right: 45px;
 		}
-		@media screen and (max-width: 767px) {
+		@media screen and (max-width: $layoutDesktop + "px") {
+			font-size: calc(14px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+			line-height: calc(20 / 16);
+		}
+		@media screen and (max-width: 575px) {
 			max-width: inherit;
 		}
-		@media screen and (max-width: 575px) {
-			margin-bottom: 20px;
+	}
+
+	// .tasks__bottom
+	&__bottom {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -15px;
+
+		@media screen and (max-width: 991px) {
+			margin: 0 -10px;
 		}
 	}
 
-	// .firstscreen__image
-	&__image {
-		flex: 0 0 48.5%;
-		z-index: 1;
+	// .tasks__card
+	&__card {
+		flex: 0 0 33.333%;
 
-		@media screen and (max-width: 991px) {
-			flex: 0 0 40%;
+		@media screen and (max-width: 767px) {
+			flex: 0 0 50%;
+		}
+		@media screen and (max-width: 450px) {
+			flex: 0 0 100%;
+		}
+
+		// .tasks__card-wrapper
+		&-wrapper {
+			padding: 27px 15px;
+			max-width: 315px;
+
+			@media screen and (max-width: 991px) {
+				padding: 20px 10px;
+			}
+			@media screen and (max-width: 450px) {
+				padding: 15px 10px;
+			}
+		}
+
+		// .tasks__card-image
+		&-image {
+			padding: 17px 0px 39px 15px;
+
+			@media screen and (max-width: 991px) {
+				padding-bottom: 25px;
+			}
+			@media screen and (max-width: 575px) {
+				padding: 10px 0 15px;
+			}
+			@media screen and (max-width: 450px) {
+				padding-top: 0;
+			}
+		}
+
+		// .tasks__card-title
+		&-title {
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 19px;
+			margin-bottom: 8px;
+
+			@media screen and (max-width: $layoutDesktop + "px") {
+				font-size: calc(14px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+				line-height: calc(19 / 16);
+			}
+		}
+
+		// .tasks__card-text
+		&-text {
+			line-height: 21px;
 		}
 	}
 }
+// !End of functions
