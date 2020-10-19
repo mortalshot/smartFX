@@ -1,7 +1,8 @@
 .product {
 	background: $Black_2 url(../img/solution/product-bg.svg) no-repeat center 51%;
 	color: $White;
-	padding: 87px 0;
+	padding: 87px 0 80px;
+	position: relative;
 
 	@media screen and (max-width: 991px) {
 		padding: 65px 0;
@@ -28,8 +29,11 @@
 		@media screen and (max-width: 767px) {
 			margin-bottom: 25px;
 		}
-		@media screen and (max-width: 450px) {
+		@media screen and (max-width: 575px) {
 			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 450px) {
+			margin-bottom: 10px;
 		}
 	}
 

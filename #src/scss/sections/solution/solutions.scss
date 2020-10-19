@@ -1,6 +1,6 @@
 .solutions {
 	background: $White url(../img/solution/solution-bg.svg) no-repeat center 69.4%;
-	padding: 82px 0;
+	padding: 82px 0 73px;
 
 	@media screen and (max-width: 991px) {
 		padding: 65px 0;
@@ -32,8 +32,11 @@
 		@media screen and (max-width: 767px) {
 			margin-bottom: 25px;
 		}
-		@media screen and (max-width: 450px) {
+		@media screen and (max-width: 575px) {
 			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 450px) {
+			margin-bottom: 10px;
 		}
 	}
 
