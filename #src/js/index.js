@@ -8,8 +8,10 @@
 @@include('components/popup.js')
 @@include('components/accordion.js')
 @@include('components/parallax.js')
+@@include('components/form.js')
 
 @@include('components/media.js')
+
 /*
 @@include('components/tabs.js')
 @@include('components/header-fixed.js')

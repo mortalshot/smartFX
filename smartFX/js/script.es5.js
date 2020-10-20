@@ -6,6 +6,10 @@
 // https://www.youtube.com/c/freelancerlifestyle
 "use strict";
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 (function () {
   var originalPositions = [];
   var daElements = document.querySelectorAll('[data-da]');
@@ -612,7 +616,177 @@ $(document).ready(function () {
     }
 
     $(this).toggleClass('active').next().slideToggle(300);
+
+    if (!$(this).hasClass('active')) {
+      $(this).closest('.faq__accordion-item').css({
+        'background-color': '#fff'
+      });
+    } else {
+      $('.faq__accordion-item').css({
+        'background-color': '#fff'
+      });
+      $(this).closest('.faq__accordion-item').css({
+        'background-color': '#142745'
+      });
+    }
   });
+  $('.accordion .accordion__title:first').click();
+});
+"use strict";
+
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('form');
+  form.addEventListener('submit', formSend);
+
+  function formSend(_x) {
+    return _formSend.apply(this, arguments);
+  }
+
+  function _formSend() {
+    _formSend = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+      var error, formData, response, result;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              error = formValidate(form);
+              formData = new FormData(form);
+              formData.append('image', formImage.files[0]);
+
+              if (!(error === 0)) {
+                _context.next = 23;
+                break;
+              }
+
+              form.classList.add('_sending');
+              _context.next = 8;
+              return fetch('sendmail.php', {
+                method: 'POST',
+                body: formData
+              });
+
+            case 8:
+              response = _context.sent;
+
+              if (!response.ok) {
+                _context.next = 19;
+                break;
+              }
+
+              _context.next = 12;
+              return response.json();
+
+            case 12:
+              result = _context.sent;
+              alert(result.message);
+              formPreview.innerHTML = '';
+              form.reset();
+              form.classList.remove('_sending');
+              _context.next = 21;
+              break;
+
+            case 19:
+              alert("Ошибка");
+              form.classList.remove('_sending');
+
+            case 21:
+              _context.next = 24;
+              break;
+
+            case 23:
+              alert('Заполните обязательные поля');
+
+            case 24:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return _formSend.apply(this, arguments);
+  }
+
+  function formValidate(form) {
+    var error = 0;
+    var formReq = document.querySelectorAll('._req');
+
+    for (var _index7 = 0; _index7 < formReq.length; _index7++) {
+      var input = formReq[_index7];
+      formRemoveError(input);
+
+      if (input.classList.contains('_email')) {
+        if (emailTest(input)) {
+          formAddError(input);
+          error++;
+        }
+      } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+        formAddError(input);
+        error++;
+      } else {
+        if (input.value === '') {
+          formAddError(input);
+          error++;
+        }
+      }
+    }
+
+    return error;
+  }
+
+  function formAddError(input) {
+    input.parentElement.classList.add('_error');
+    input.classList.add('_error');
+  }
+
+  function formRemoveError(input) {
+    input.parentElement.classList.remove('_error');
+    input.classList.remove('_error');
+  } //Функция теста email
+
+
+  function emailTest(input) {
+    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+  } //Получаем инпут file в переменную
+
+
+  var formImage = document.getElementById('formImage'); //Получаем див для превью в переменную
+
+  var formPreview = document.getElementById('formPreview');
+
+  if (formImage) {
+    //Слушаем изменения в инпуте file
+    formImage.addEventListener('change', function () {
+      uploadFile(formImage.files[0]);
+    });
+  }
+
+  function uploadFile(file) {
+    // провераяем тип файла
+    if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
+      alert('Разрешены только изображения.');
+      formImage.value = '';
+      return;
+    } // проверим размер файла (<2 Мб)
+
+
+    if (file.size > 2 * 1024 * 1024) {
+      alert('Файл должен быть менее 2 МБ.');
+      return;
+    }
+
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      formPreview.innerHTML = "<img src=\"".concat(e.target.result, "\" alt=\"\u0424\u043E\u0442\u043E\">");
+    };
+
+    reader.onerror = function (e) {
+      alert('Ошибка');
+    };
+
+    reader.readAsDataURL(file);
+  }
 });
 $(document).ready(function () {
   var mediaQuerylgMin = window.matchMedia('(min-width: 992px)'); // mediaQuerylgMin

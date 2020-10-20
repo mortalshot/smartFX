@@ -1,0 +1,118 @@
+.integration {
+	background: $Black_2 url(../img/integration/bg.svg) no-repeat center 49%;
+	padding: 87px 0;
+	color: $White;
+
+	@media screen and (max-width: 991px) {
+		padding: 50px 0;
+	}
+
+	// .integration__container
+	&__container {
+		max-width: 815px;
+	}
+
+	// .integration__title
+	&__title {
+		text-align: center;
+		margin-bottom: 53px;
+
+		@media screen and (max-width: 991px) {
+			margin-bottom: 30px;
+		}
+		@media screen and (max-width: 450px) {
+			margin-bottom: 15px;
+		}
+	}
+
+	// .integration__subtitle
+	&__subtitle {
+		margin-bottom: 40px;
+		text-align: center;
+
+		@media screen and (max-width: $layoutDesktop + "px") {
+			line-height: calc(34 / 24);
+		}
+		@media screen and (max-width: 991px) {
+			margin-bottom: 25px;
+		}
+		@media screen and (max-width: 450px) {
+			margin-bottom: 20px;
+			font-weight: 500;
+		}
+	}
+
+	// .integration__list
+	&__list {
+		max-width: 675px;
+		margin: 0 auto 80px;
+
+		@media screen and (max-width: 991px) {
+			margin-bottom: 50px;
+		}
+		@media screen and (max-width: 767px) {
+			margin-bottom: 30px;
+		}
+		@media screen and (max-width: 450px) {
+			margin-bottom: 20px;
+		}
+	}
+
+	// .integration__list-item
+	&__list-item {
+		margin-bottom: 27px;
+		position: relative;
+		display: flex;
+		align-items: center;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		
+		@media screen and (max-width: $layoutDesktop + 'px') {
+			font-size: calc(14px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+			line-height: calc(21 / 16);
+		}
+		@media screen and (max-width: 991px) {
+			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 450px) {
+			margin-bottom: 10px;
+		}
+
+		&::before {
+			content: "";
+			display: flex;
+			height: 1px;
+			flex: 0 0 78px;
+			margin-right: 24px;
+			background-color: $red;
+
+			@media screen and (max-width: 767px) {
+				flex: 0 0 40px;
+				margin-right: 15px;
+			}
+			@media screen and (max-width: 575px) {
+				flex: 0 0 25px;
+				margin-right: 10px;
+			}
+		}
+    }
+    
+	// .integration__button
+	&__button {
+		display: flex;
+		justify-content: center;
+	}
+	
+	&__btn {
+		width: 100%;
+		max-width: 330px;
+		text-align: center;
+		background: url(../img/icons/button-xl.svg) no-repeat center/cover;
+		
+		@media screen and (max-width: 450px) {
+			height: 55px;
+			padding: 0;
+		}
+	}
+}
