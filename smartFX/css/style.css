@@ -1177,6 +1177,184 @@ textarea.form__input {
   z-index: 1;
 }
 
+.functions {
+  background: #142745 url(../img/functions/bg.svg) no-repeat center 18%;
+  padding: 59px 0;
+}
+
+.tasks {
+  padding: 57px 0;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.tasks__container {
+  max-width: 1070px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tasks__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 50px;
+}
+
+.tasks__subtitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  max-width: 225px;
+}
+
+.tasks__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.tasks__card {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.333%;
+          flex: 0 0 33.333%;
+}
+
+.tasks__card-wrapper {
+  padding: 27px 15px;
+  max-width: 315px;
+}
+
+.tasks__card-image {
+  padding: 17px 0px 39px 15px;
+}
+
+.tasks__card-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 8px;
+}
+
+.tasks__card-text {
+  line-height: 21px;
+}
+
+.skrolltriger {
+  padding: 87px 0 0;
+  color: #fff;
+}
+
+.skrolltriger__container {
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.skrolltriger__left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-right: 15px;
+}
+
+.skrolltriger__title {
+  margin-bottom: 37px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 462px;
+  line-height: 61px;
+}
+
+.skrolltriger__title::after {
+  content: "";
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 99px;
+          flex: 0 0 99px;
+  margin-left: 67px;
+  height: 1px;
+  background: #fff;
+  position: relative;
+  top: 43px;
+}
+
+.skrolltriger__text {
+  max-width: 348px;
+  line-height: 23px;
+}
+
+.skrolltriger__right {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 48.9%;
+          flex: 0 0 48.9%;
+}
+
+.skrolltriger__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px 32px;
+  margin-bottom: 32px;
+  color: #19202b;
+}
+
+.skrolltriger__card-row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+}
+
+.skrolltriger__card-title {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 156px;
+          flex: 0 0 156px;
+  padding-right: 15px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.skrolltriger__card-text {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.skrolltriger__button {
+  margin-top: 65px;
+}
+
+.skrolltriger .cubes {
+  margin-top: 93px;
+}
+
 .solutions {
   background: #fff url(../img/solution/solution-bg.svg) no-repeat center 69.4%;
   padding: 82px 0 73px;
@@ -1640,6 +1818,12 @@ textarea.form__input {
   }
 }
 
+@media screen and (min-width: 576px) {
+  .skrolltriger__card {
+    opacity: 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .faq__accordion-title.active {
     padding-bottom: 31px;
@@ -1649,6 +1833,10 @@ textarea.form__input {
 @media screen and (min-width: 992px) {
   .container {
     padding: 0 30px;
+  }
+
+  .tasks__subtitle {
+    margin-right: 45px;
   }
 
   .properties__card-wrapper {
@@ -1698,6 +1886,35 @@ textarea.form__input {
   }
 
   .footer__link {
+    font-size: calc(12px + 2 * ((100vw - 320px) / (1280 - 320)));
+    line-height: calc(16 / 14);
+  }
+
+  .tasks__subtitle {
+    font-size: calc(14px + 2 * ((100vw - 320px) / (1280 - 320)));
+    line-height: calc(20 / 16);
+  }
+
+  .tasks__card-title {
+    font-size: calc(14px + 2 * ((100vw - 320px) / (1280 - 320)));
+    line-height: calc(19 / 16);
+  }
+
+  .skrolltriger__title {
+    line-height: calc(61 / 56);
+  }
+
+  .skrolltriger__text {
+    font-size: calc(14px + 2 * ((100vw - 320px) / (1280 - 320)));
+    line-height: calc(23 / 16);
+  }
+
+  .skrolltriger__card-title {
+    font-size: calc(14px + 2 * ((100vw - 320px) / (1280 - 320)));
+    line-height: calc(19 / 16);
+  }
+
+  .skrolltriger__card-text {
     font-size: calc(12px + 2 * ((100vw - 320px) / (1280 - 320)));
     line-height: calc(16 / 14);
   }
@@ -1792,6 +2009,26 @@ textarea.form__input {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 40%;
             flex: 0 0 40%;
+  }
+
+  .tasks__top {
+    margin-bottom: 30px;
+  }
+
+  .tasks__bottom {
+    margin: 0 -10px;
+  }
+
+  .tasks__card-wrapper {
+    padding: 20px 10px;
+  }
+
+  .tasks__card-image {
+    padding-bottom: 25px;
+  }
+
+  .skrolltriger {
+    padding: 65px 0 0;
   }
 
   .solutions {
@@ -2121,6 +2358,33 @@ textarea.form__input {
     max-width: inherit;
   }
 
+  .tasks__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
+
+  .skrolltriger__title {
+    margin-bottom: 17px;
+  }
+
+  .skrolltriger__title::after {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50px;
+            flex: 0 0 50px;
+    margin-left: 30px;
+  }
+
+  .skrolltriger__card {
+    padding: 10px 15px;
+  }
+
+  .skrolltriger__card-title {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100px;
+            flex: 0 0 100px;
+  }
+
   .solutions {
     padding: 50px 0;
   }
@@ -2257,6 +2521,31 @@ textarea.form__input {
     margin-bottom: 20px;
   }
 
+  .tasks {
+    padding: 30px 0;
+  }
+
+  .tasks__top {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .tasks__title {
+    margin-bottom: 15px;
+  }
+
+  .tasks__title br {
+    display: none;
+  }
+
+  .tasks__subtitle {
+    max-width: inherit;
+  }
+
+  .tasks__card-image {
+    padding: 10px 0 15px;
+  }
+
   .solutions {
     padding: 30px 0;
   }
@@ -2387,6 +2676,24 @@ textarea.form__input {
 
   .firstscreen__row {
     margin: 0 -20px;
+  }
+
+  .functions {
+    padding: 30px 0;
+  }
+
+  .tasks__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+
+  .tasks__card-wrapper {
+    padding: 15px 10px;
+  }
+
+  .tasks__card-image {
+    padding-top: 0;
   }
 
   .solutions__title {
