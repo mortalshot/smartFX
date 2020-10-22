@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    z-index: 6;
+    z-index: 51;
     visibility: hidden;
     overflow-y: auto;
     overflow-x: hidden;
@@ -29,32 +29,28 @@
         align-items: center;
         justify-content: center;
         padding: 30px 10px;
-
-        @media screen and (max-width: 450px) {
-            padding: 30px 0;
-        }
     }
 
     &__content {
-        // background: $card-color;
-        color: #fff;
-        padding: 60px 40px 64px;
+        background: $White;
+        color: $Black;
+        padding: 60px 66px 75px;
         width: 100%;
-        max-width: 950px;
+        max-width: 535px;
         position: relative;
         opacity: 0;
         transform: translate(0, -100%);
         transition: 0.8s ease all 0s;
 
-        @media screen and (max-width: 767px) {
-            padding: 25px 10px 60px;
+        @media screen and (max-width: 450px) {
+            padding: 30px 20px 40px;
         }
     }
 
     &__close {
         position: absolute;
-        top: 25px;
-        right: 27px;
+        top: 20px;
+        right: 24px;
 
         @media screen and (max-width: 767px) {
             top: 15px;

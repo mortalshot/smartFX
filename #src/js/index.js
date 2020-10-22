@@ -7,8 +7,8 @@
 @@include('components/select.js')
 @@include('components/popup.js')
 @@include('components/accordion.js')
-@@include('components/parallax.js')
 @@include('components/form.js')
+@@include('components/animation.js')
 
 @@include('components/media.js')
 

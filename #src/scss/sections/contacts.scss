@@ -1,5 +1,5 @@
 .contacts {
-	padding: 48px 0;
+	padding: 48px 0 53px;
 	background-color: $Black;
 	color: $White;
 
@@ -82,9 +82,8 @@
 	}
 
 	// .contacts__form
-
-	&__form {
-		.form__title {
+	.form {
+		&__title {
 			margin-bottom: 24px;
 
 			@media screen and (max-width: 991px) {
@@ -92,7 +91,7 @@
 			}
 		}
 
-		.form__description {
+		&__description {
 			margin-bottom: 42px;
 
 			@media screen and (max-width: 991px) {
@@ -100,13 +99,13 @@
 			}
 		}
 
-		.form__item {
+		&__item {
 			@media screen and (max-width: 991px) {
 				margin-bottom: 20px;
 			}
 		}
 
-		.form__button {
+		&__button {
 			margin-top: 13px;
 			padding: 0 31px;
 

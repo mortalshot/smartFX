@@ -217,6 +217,23 @@ $(document).ready(function () {
   $('.header__burger').click(function (event) {
     $('.header__burger, .header__menu').toggleClass('active');
     $('body').toggleClass('lock');
+  }); // up btn show/hide
+
+  var btnUp = $('.up-btn');
+  $(window).scroll(function () {
+    var winScrollTop = $(this).scrollTop();
+
+    if (winScrollTop > 600) {
+      btnUp.addClass('show');
+    } else {
+      btnUp.removeClass('show');
+    }
+  });
+  btnUp.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: 0
+    }, '1000');
   });
 }); //Select
 
@@ -470,142 +487,145 @@ var _slideToggle = function _slideToggle(target) {
   }
 };
 
-var popupLinks = document.querySelectorAll('.popup-link');
-var body = document.querySelector('body');
-var lockPadding = document.querySelectorAll(".lock-padding");
-var unlock = true;
-var timeout = 800;
+"use strict";
 
-if (popupLinks.length > 0) {
-  var _loop2 = function _loop2(index) {
-    var popupLink = popupLinks[index];
-    popupLink.addEventListener("click", function (e) {
-      var popupName = popupLink.getAttribute('href').replace('#', '');
-      var currentPopup = document.getElementById(popupName);
-      popupOpen(currentPopup);
-      e.preventDefault();
-    });
-  };
+document.addEventListener('DOMContentLoaded', function () {
+  var popupLinks = document.querySelectorAll('.popup-link');
+  var body = document.querySelector('body');
+  var lockPadding = document.querySelectorAll(".lock-padding");
+  var unlock = true;
+  var timeout = 800;
 
-  for (var index = 0; index < popupLinks.length; index++) {
-    _loop2(index);
-  }
-}
-
-var popupCloseIcon = document.querySelectorAll('.close-popup');
-
-if (popupCloseIcon.length > 0) {
-  var _loop3 = function _loop3(_index4) {
-    var el = popupCloseIcon[_index4];
-    el.addEventListener('click', function (e) {
-      popupClose(el.closest('.popup'));
-      e.preventDefault();
-    });
-  };
-
-  for (var _index4 = 0; _index4 < popupCloseIcon.length; _index4++) {
-    _loop3(_index4);
-  }
-}
-
-function popupOpen(currentPopup) {
-  if (currentPopup && unlock) {
-    var popupActive = document.querySelector('.popup.open');
-
-    if (popupActive) {
-      popupClose(popupActive, false);
-    } else {
-      bodyLock();
-    }
-
-    currentPopup.classList.add('open');
-    currentPopup.addEventListener('click', function (e) {
-      if (!e.target.closest('.popup__content')) {
-        popupClose(e.target.closest('.popup'));
-      }
-    });
-  }
-}
-
-function popupClose(popupActive) {
-  var doUnlock = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-  if (unlock) {
-    popupActive.classList.remove('open');
-
-    if (doUnlock) {
-      bodyUnLock();
-    }
-  }
-}
-
-function bodyLock() {
-  var lockPaddingValue = window.innerWidth - document.querySelector('.site-content').offsetWidth + 'px'; //!обратить внимание на контейнер
-
-  if (lockPadding.length > 0) {
-    for (var _index5 = 0; _index5 < lockPadding.length; _index5++) {
-      var el = lockPadding[_index5];
-      el.style.paddingRight = lockPaddingValue;
-    }
-  }
-
-  body.style.paddingRight = lockPaddingValue;
-  body.classList.add('lock');
-  unlock = false;
-  setTimeout(function () {
-    unlock = true;
-  }, timeout);
-}
-
-function bodyUnLock() {
-  setTimeout(function () {
-    if (lockPadding.length > 0) {
-      for (var _index6 = 0; _index6 < lockPadding.length; _index6++) {
-        var el = lockPadding[_index6];
-        el.style.paddingRight = '0px';
-      }
-    }
-
-    body.style.paddingRight = '0px';
-    body.classList.remove('lock');
-  }, timeout);
-  unlock = false;
-  setTimeout(function () {
-    unlock = true;
-  }, timeout);
-}
-
-document.addEventListener('keydown', function (e) {
-  if (e.which === 27) {
-    var popupActive = document.querySelector('.popup.open');
-    popupClose(popupActive);
-  }
-});
-
-(function () {
-  // проверяем поддержку
-  if (!Element.prototype.closest) {
-    // реализуем
-    Element.prototype.closest = function (css) {
-      var node = this;
-
-      while (node) {
-        if (node.matches(css)) return node;else node = node.parentElement;
-      }
-
-      return null;
+  if (popupLinks.length > 0) {
+    var _loop2 = function _loop2(index) {
+      var popupLink = popupLinks[index];
+      popupLink.addEventListener("click", function (e) {
+        var popupName = popupLink.getAttribute('href').replace('#', '');
+        var currentPopup = document.getElementById(popupName);
+        popupOpen(currentPopup);
+        e.preventDefault();
+      });
     };
-  }
-})();
 
-(function () {
-  // проверяем поддержку
-  if (!Element.prototype.matches) {
-    // определяем свойство
-    Element.prototype.matches = Element.prototype.matchesSelector || Element.prototype.webkitMatchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector;
+    for (var index = 0; index < popupLinks.length; index++) {
+      _loop2(index);
+    }
   }
-})();
 
+  var popupCloseIcon = document.querySelectorAll('.close-popup');
+
+  if (popupCloseIcon.length > 0) {
+    var _loop3 = function _loop3(_index4) {
+      var el = popupCloseIcon[_index4];
+      el.addEventListener('click', function (e) {
+        popupClose(el.closest('.popup'));
+        e.preventDefault();
+      });
+    };
+
+    for (var _index4 = 0; _index4 < popupCloseIcon.length; _index4++) {
+      _loop3(_index4);
+    }
+  }
+
+  function popupOpen(currentPopup) {
+    if (currentPopup && unlock) {
+      var popupActive = document.querySelector('.popup.open');
+
+      if (popupActive) {
+        popupClose(popupActive, false);
+      } else {
+        bodyLock();
+      }
+
+      currentPopup.classList.add('open');
+      currentPopup.addEventListener('click', function (e) {
+        if (!e.target.closest('.popup__content')) {
+          popupClose(e.target.closest('.popup'));
+        }
+      });
+    }
+  }
+
+  function popupClose(popupActive) {
+    var doUnlock = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+    if (unlock) {
+      popupActive.classList.remove('open');
+
+      if (doUnlock) {
+        bodyUnLock();
+      }
+    }
+  }
+
+  function bodyLock() {
+    var lockPaddingValue = window.innerWidth - document.querySelector('.site__main').offsetWidth + 'px'; //!обратить внимание на контейнер
+
+    if (lockPadding.length > 0) {
+      for (var _index5 = 0; _index5 < lockPadding.length; _index5++) {
+        var el = lockPadding[_index5];
+        el.style.paddingRight = lockPaddingValue;
+      }
+    }
+
+    body.style.paddingRight = lockPaddingValue;
+    body.classList.add('lock');
+    unlock = false;
+    setTimeout(function () {
+      unlock = true;
+    }, timeout);
+  }
+
+  function bodyUnLock() {
+    setTimeout(function () {
+      if (lockPadding.length > 0) {
+        for (var _index6 = 0; _index6 < lockPadding.length; _index6++) {
+          var el = lockPadding[_index6];
+          el.style.paddingRight = '0px';
+        }
+      }
+
+      body.style.paddingRight = '0px';
+      body.classList.remove('lock');
+    }, timeout);
+    unlock = false;
+    setTimeout(function () {
+      unlock = true;
+    }, timeout);
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.which === 27) {
+      var popupActive = document.querySelector('.popup.open');
+      popupClose(popupActive);
+    }
+  });
+
+  (function () {
+    // проверяем поддержку
+    if (!Element.prototype.closest) {
+      // реализуем
+      Element.prototype.closest = function (css) {
+        var node = this;
+
+        while (node) {
+          if (node.matches(css)) return node;else node = node.parentElement;
+        }
+
+        return null;
+      };
+    }
+  })();
+
+  (function () {
+    // проверяем поддержку
+    if (!Element.prototype.matches) {
+      // определяем свойство
+      Element.prototype.matches = Element.prototype.matchesSelector || Element.prototype.webkitMatchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector;
+    }
+  })();
+});
 $(document).ready(function () {
   $('.accordion__title').click(function (event) {
     var accordionid = $(this).closest('.accordion').attr("id");
@@ -711,8 +731,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var error = 0;
     var formReq = document.querySelectorAll('._req');
 
-    for (var _index7 = 0; _index7 < formReq.length; _index7++) {
-      var input = formReq[_index7];
+    for (var index = 0; index < formReq.length; index++) {
+      var input = formReq[index];
       formRemoveError(input);
 
       if (input.classList.contains('_email')) {
@@ -786,6 +806,96 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     reader.readAsDataURL(file);
+  }
+});
+document.addEventListener('DOMContentLoaded', function () {
+  var animItems = document.querySelectorAll('._anim-items');
+
+  if (animItems.length > 0) {
+    var animOnScroll = function animOnScroll(params) {
+      for (var index = 0; index < animItems.length; index++) {
+        var animItem = animItems[index];
+        var animItemHeight = animItem.offsetHeight;
+        var animItemOffset = offset(animItem).top;
+        var animStart = 55; // Коэффициент старта анимации
+
+        var animItemPoint = window.innerHeight - animItemHeight / animStart;
+
+        if (animItemHeight > window.innerHeight) {
+          animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        }
+
+        if (pageYOffset > animItemOffset - animItemPoint && pageYOffset < animItemOffset + animItemHeight) {
+          animItem.classList.add('_active');
+        } else {
+          if (!animItem.classList.contains('_anim-no-hide')) {
+            animItem.classList.remove('_active');
+          }
+        }
+      }
+    };
+
+    var offset = function offset(el) {
+      var rect = el.getBoundingClientRect(),
+          scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+          scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return {
+        top: rect.top + scrollTop,
+        left: rect.left + scrollLeft
+      };
+    };
+
+    window.addEventListener('scroll', animOnScroll);
+    setTimeout(function () {
+      animOnScroll();
+    }, 300);
+  }
+
+  var mediaQuerySmMin = window.matchMedia('(min-width: 576px)');
+  mediaQuerySmMin.addListener(handleTabletChange);
+
+  function handleTabletChange(e) {
+    if (e.matches) {
+      var st = ScrollTrigger.create({
+        trigger: ".skrolltriger__content",
+        pin: ".skrolltriger__content",
+        start: "top center",
+        end: "+=670"
+      });
+      var cards = gsap.utils.toArray('.skrolltriger__card');
+      cards.forEach(function (card) {
+        gsap.to(card, {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: card,
+            scrub: true,
+            start: "top 90%",
+            end: "bottom 55%"
+          }
+        });
+      });
+    }
+  }
+
+  if (mediaQuerySmMin.matches) {
+    var st = ScrollTrigger.create({
+      trigger: ".skrolltriger__content",
+      pin: ".skrolltriger__content",
+      start: "top center",
+      end: "+=670"
+    });
+    var cards = gsap.utils.toArray('.skrolltriger__card');
+    cards.forEach(function (card) {
+      gsap.to(card, {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: card,
+          scrub: true,
+          start: "top 90%",
+          end: "bottom 55%"
+        }
+      });
+    });
   }
 });
 $(document).ready(function () {

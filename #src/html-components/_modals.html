@@ -1,0 +1,48 @@
+<div id="request" class="popup">
+    <div class="popup__body">
+        <div class="popup__content request-content">
+            <a href="" class="popup__close close-popup">
+                <svg width="16" height="16" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 1L1 7" stroke="#19202B" />
+                    <path d="M7 7L1 1" stroke="#19202B" />
+                </svg>
+            </a>
+            <div class="popup__form form">
+                <form class="contacts__form form-contacts" action="mail.php">
+                    <!-- Hidden Required Fields -->
+                    <input type="hidden" name="project_name" value="Project name">
+                    <input type="hidden" name="admin_email" value="seregagl1996@gmail.com">
+                    <input type="hidden" name="form_subject" value="Заявка с сайта">
+                    <input type="hidden" name="whatever" value="whatever" id="whatever">
+                    <!-- END Hidden Required Fields -->
+
+                    <h3 class="form__title title-h3">Оставьте заявку</h3>
+                    <div class="form__description">Мы свяжемся с Вами в течении 15 минут!</div>
+                    <div class="form__item">
+                        <input type="text" id="popupFormName" name="Имя:" class="form__input _req" required>
+                        <label for="popupFormName" class="form__label">Ваше имя*:</label>
+                    </div>
+                    <div class="form__item">
+                        <input type="text" id="popupFormPhone" name="Телефон:" class="form__input form__input--phone _req"
+                            required>
+                        <label for="popupFormPhone" class="form__label">Номер телефона*:</label>
+                    </div>
+                    <div class="form__item form__item--mail">
+                        <input id="popupFormEmail" type="text" name="email" class="form__input _req _email" required>
+                        <label for="popupFormEmail" class="form__label">Ваша почта*:</label>
+                    </div>
+                    <div class="form__item form__item--privacy">
+                        <div class="checkbox">
+                            <input id="popupFormAgreement" checked type="checkbox" name="agreement"
+                                class="checkbox__input _req">
+                            <label for="popupFormAgreement" class="checkbox__label">
+                                <span>Я даю согласие на <a href="">обработку</a> персональных данных*</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="form__button btn-bg">Оставить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

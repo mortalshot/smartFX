@@ -189,11 +189,27 @@ testWebP(function (support) {
 		document.querySelector('body').classList.add('no-webp');
 	}
 });
-$(document).ready(function() {
-    $('.header__burger').click(function(event) {
+$(document).ready(function () {
+    $('.header__burger').click(function (event) {
         $('.header__burger, .header__menu').toggleClass('active');
         $('body').toggleClass('lock');
     })
+
+    // up btn show/hide
+    const btnUp = $('.up-btn');
+    $(window).scroll(function () {
+        var winScrollTop = $(this).scrollTop();
+        if (winScrollTop > 600) {
+            btnUp.addClass('show');
+        } else {
+            btnUp.removeClass('show');
+        }
+    });
+
+    btnUp.on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, '1000');
+    });
 })
 //Select
 let selects = document.getElementsByTagName('select');
@@ -419,133 +435,137 @@ let _slideToggle = (target, duration = 500) => {
 		}
 	}
 }
-const popupLinks = document.querySelectorAll('.popup-link');
-const body = document.querySelector('body');
-const lockPadding = document.querySelectorAll(".lock-padding");
+"use strict"
 
-let unlock = true;
+document.addEventListener('DOMContentLoaded', function () {
+    const popupLinks = document.querySelectorAll('.popup-link');
+    const body = document.querySelector('body');
+    const lockPadding = document.querySelectorAll(".lock-padding");
 
-const timeout = 800;
+    let unlock = true;
 
-if (popupLinks.length > 0) {
-    for (let index = 0; index < popupLinks.length; index++) {
-        const popupLink = popupLinks[index];
-        popupLink.addEventListener("click", function (e) {
-            const popupName = popupLink.getAttribute('href').replace('#', '');
-            const currentPopup = document.getElementById(popupName);
-            popupOpen(currentPopup);
-            e.preventDefault();
-        });
-    }
-}
-const popupCloseIcon = document.querySelectorAll('.close-popup');
-if (popupCloseIcon.length > 0) {
-    for (let index = 0; index < popupCloseIcon.length; index++) {
-        const el = popupCloseIcon[index];
-        el.addEventListener('click', function (e) {
-            popupClose(el.closest('.popup'));
-            e.preventDefault();
-        });
-    }
-}
+    const timeout = 800;
 
-function popupOpen(currentPopup) {
-    if (currentPopup && unlock) {
-        const popupActive = document.querySelector('.popup.open');
-        if (popupActive) {
-            popupClose(popupActive, false);
-        } else {
-            bodyLock();
+    if (popupLinks.length > 0) {
+        for (let index = 0; index < popupLinks.length; index++) {
+            const popupLink = popupLinks[index];
+            popupLink.addEventListener("click", function (e) {
+                const popupName = popupLink.getAttribute('href').replace('#', '');
+                const currentPopup = document.getElementById(popupName);
+                popupOpen(currentPopup);
+                e.preventDefault();
+            });
         }
-        currentPopup.classList.add('open');
-        currentPopup.addEventListener('click', function (e) {
-            if (!e.target.closest('.popup__content')) {
-                popupClose(e.target.closest('.popup'));
+    }
+    const popupCloseIcon = document.querySelectorAll('.close-popup');
+    if (popupCloseIcon.length > 0) {
+        for (let index = 0; index < popupCloseIcon.length; index++) {
+            const el = popupCloseIcon[index];
+            el.addEventListener('click', function (e) {
+                popupClose(el.closest('.popup'));
+                e.preventDefault();
+            });
+        }
+    }
+
+    function popupOpen(currentPopup) {
+        if (currentPopup && unlock) {
+            const popupActive = document.querySelector('.popup.open');
+            if (popupActive) {
+                popupClose(popupActive, false);
+            } else {
+                bodyLock();
             }
-        });
-    }
-}
-
-function popupClose(popupActive, doUnlock = true) {
-    if (unlock) {
-        popupActive.classList.remove('open');
-        if (doUnlock) {
-            bodyUnLock();
+            currentPopup.classList.add('open');
+            currentPopup.addEventListener('click', function (e) {
+                if (!e.target.closest('.popup__content')) {
+                    popupClose(e.target.closest('.popup'));
+                }
+            });
         }
     }
-}
 
-function bodyLock() {
-    const lockPaddingValue = window.innerWidth - document.querySelector('.site-content').offsetWidth + 'px'; //!обратить внимание на контейнер
-
-    if (lockPadding.length > 0) {
-        for (let index = 0; index < lockPadding.length; index++) {
-            const el = lockPadding[index];
-            el.style.paddingRight = lockPaddingValue;
+    function popupClose(popupActive, doUnlock = true) {
+        if (unlock) {
+            popupActive.classList.remove('open');
+            if (doUnlock) {
+                bodyUnLock();
+            }
         }
     }
-    body.style.paddingRight = lockPaddingValue;
-    body.classList.add('lock');
 
-    unlock = false;
-    setTimeout(function () {
-        unlock = true;
-    }, timeout);
-}
+    function bodyLock() {
+        const lockPaddingValue = window.innerWidth - document.querySelector('.site__main').offsetWidth + 'px'; //!обратить внимание на контейнер
 
-function bodyUnLock() {
-    setTimeout(function () {
         if (lockPadding.length > 0) {
             for (let index = 0; index < lockPadding.length; index++) {
                 const el = lockPadding[index];
-                el.style.paddingRight = '0px';
+                el.style.paddingRight = lockPaddingValue;
             }
         }
-        body.style.paddingRight = '0px';
-        body.classList.remove('lock');
-    }, timeout);
+        body.style.paddingRight = lockPaddingValue;
+        body.classList.add('lock');
 
-    unlock = false;
-    setTimeout(function () {
-        unlock = true;
-    }, timeout)
-}
-
-document.addEventListener('keydown', function (e) {
-    if (e.which === 27) {
-        const popupActive = document.querySelector('.popup.open');
-        popupClose(popupActive);
+        unlock = false;
+        setTimeout(function () {
+            unlock = true;
+        }, timeout);
     }
-});
 
-(function () {
-    // проверяем поддержку
-    if (!Element.prototype.closest) {
-
-        // реализуем
-        Element.prototype.closest = function (css) {
-            var node = this;
-
-            while (node) {
-                if (node.matches(css)) return node;
-                else node = node.parentElement;
+    function bodyUnLock() {
+        setTimeout(function () {
+            if (lockPadding.length > 0) {
+                for (let index = 0; index < lockPadding.length; index++) {
+                    const el = lockPadding[index];
+                    el.style.paddingRight = '0px';
+                }
             }
-            return null;
-        };
-    }
-})();
+            body.style.paddingRight = '0px';
+            body.classList.remove('lock');
+        }, timeout);
 
-(function () {
-    // проверяем поддержку
-    if (!Element.prototype.matches) {
-
-        // определяем свойство
-        Element.prototype.matches = Element.prototype.matchesSelector ||
-            Element.prototype.webkitMatchesSelector ||
-            Element.prototype.mozMatchesSelector ||
-            Element.prototype.msMatchesSelector;
+        unlock = false;
+        setTimeout(function () {
+            unlock = true;
+        }, timeout)
     }
-})();
+
+    document.addEventListener('keydown', function (e) {
+        if (e.which === 27) {
+            const popupActive = document.querySelector('.popup.open');
+            popupClose(popupActive);
+        }
+    });
+
+    (function () {
+        // проверяем поддержку
+        if (!Element.prototype.closest) {
+
+            // реализуем
+            Element.prototype.closest = function (css) {
+                var node = this;
+
+                while (node) {
+                    if (node.matches(css)) return node;
+                    else node = node.parentElement;
+                }
+                return null;
+            };
+        }
+    })();
+
+    (function () {
+        // проверяем поддержку
+        if (!Element.prototype.matches) {
+
+            // определяем свойство
+            Element.prototype.matches = Element.prototype.matchesSelector ||
+                Element.prototype.webkitMatchesSelector ||
+                Element.prototype.mozMatchesSelector ||
+                Element.prototype.msMatchesSelector;
+        }
+    })();
+});
 $(document).ready(function () {
     $('.accordion__title').click(function (event) {
 
@@ -568,7 +588,6 @@ $(document).ready(function () {
 
     $('.accordion .accordion__title:first').click();
 });
-
 "use strict"
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -675,6 +694,95 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Ошибка');
         };
         reader.readAsDataURL(file);
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const animItems = document.querySelectorAll('._anim-items');
+
+    if (animItems.length > 0) {
+        window.addEventListener('scroll', animOnScroll);
+        function animOnScroll(params) {
+            for (let index = 0; index < animItems.length; index++) {
+                const animItem = animItems[index];
+                const animItemHeight = animItem.offsetHeight;
+                const animItemOffset = offset(animItem).top;
+                const animStart = 55; // Коэффициент старта анимации
+
+                let animItemPoint = window.innerHeight - animItemHeight / animStart;
+
+                if (animItemHeight > window.innerHeight) {
+                    animItemPoint = window.innerHeight - window.innerHeight / animStart;
+                }
+
+                if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+                    animItem.classList.add('_active');
+                } else {
+                    if (!animItem.classList.contains('_anim-no-hide')) {
+                        animItem.classList.remove('_active');
+                    }
+                }
+            }
+        }
+
+        function offset(el) {
+            const rect = el.getBoundingClientRect(),
+                scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+                scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+        }
+
+        setTimeout(() => {
+            animOnScroll();
+        }, 300);
+    }
+
+
+    const mediaQuerySmMin = window.matchMedia('(min-width: 576px)');
+    mediaQuerySmMin.addListener(handleTabletChange);
+    function handleTabletChange(e) {
+        if (e.matches) {
+            let st = ScrollTrigger.create({
+                trigger: ".skrolltriger__content",
+                pin: ".skrolltriger__content",
+                start: "top center",
+                end: "+=670",
+            });
+
+            const cards = gsap.utils.toArray('.skrolltriger__card');
+            cards.forEach(card => {
+                gsap.to(card, {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: card,
+                        scrub: true,
+                        start: "top 90%",
+                        end: "bottom 55%"
+                    }
+                })
+            });
+        }
+    }
+
+    if (mediaQuerySmMin.matches) {
+        let st = ScrollTrigger.create({
+            trigger: ".skrolltriger__content",
+            pin: ".skrolltriger__content",
+            start: "top center",
+            end: "+=670",
+        });
+
+        const cards = gsap.utils.toArray('.skrolltriger__card');
+        cards.forEach(card => {
+            gsap.to(card, {
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: card,
+                    scrub: true,
+                    start: "top 90%",
+                    end: "bottom 55%"
+                }
+            })
+        });
     }
 });
 

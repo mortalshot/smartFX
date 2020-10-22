@@ -16,6 +16,7 @@ body {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        position: relative;
     }
 
     &__main {
@@ -50,4 +51,26 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+.up-btn {
+	position: fixed;
+	bottom: 32px;
+	right: -50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: rgba($color: $Black, $alpha: 0.8);
+	transition: 0.3s ease all 0s;
+	opacity: 0;
+    visibility: hidden;
+
+	&.show {
+		opacity: 1;
+		visibility: visible;
+		right: 50px;
+	}
 }
