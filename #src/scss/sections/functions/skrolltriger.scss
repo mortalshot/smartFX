@@ -1,0 +1,132 @@
+.skrolltriger {
+    padding: 87px 0 0;
+    color: $White;
+
+    @media screen and (max-width: 991px) {
+        padding: 65px 0 0;
+    }
+
+    &__container {
+        max-width: 980px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    // .skrolltriger__left
+    &__left {
+        flex: 1 1 auto;
+        margin-right: 15px;
+    }
+
+    // .skrolltriger__title
+    &__title {
+        margin-bottom: 37px;
+        display: flex;
+        justify-content: space-between;
+        max-width: 462px;
+        line-height: 61px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            line-height: calc(61 / 56);
+        }
+        @media screen and (max-width: 767px) {
+            margin-bottom: 17px;
+        }
+
+        &::after {
+            content: "";
+            flex: 0 0 99px;
+            margin-left: 67px;
+            height: 1px;
+            background: $White;
+            position: relative;
+            top: 43px;
+
+            @media screen and (max-width: 767px) {
+                flex: 0 0 50px;
+                margin-left: 30px;
+            }
+        }
+    }
+
+    // .skrolltriger__text
+    &__text {
+        max-width: 348px;
+        line-height: 23px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(14px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(23 / 16);
+        }
+    }
+
+    // .skrolltriger__right
+    &__right {
+        flex: 0 0 48.9%;
+    }
+
+    // .skrolltriger__card
+    &__card {
+        display: flex;
+        align-items: center;
+        background-color: $White;
+        border-radius: 8px;
+        width: 100%;
+        min-height: 100px;
+        padding: 10px 32px;
+        margin-bottom: 32px;
+        color: $Black;
+
+        @media screen and (max-width: 767px) {
+            padding: 10px 15px;
+        }
+        @media screen and (min-width: 576px) {
+            opacity: 0;
+        }
+    }
+
+    // .skrolltriger__card-row
+    &__card-row {
+        align-items: center;
+        width: 100%;
+        flex: 100%;
+    }
+
+    // .skrolltriger__card-title
+    &__card-title {
+        flex: 0 0 156px;
+        padding-right: 15px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(14px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(19 / 16);
+        }
+        @media screen and (max-width: 767px) {
+            flex: 0 0 100px;
+        }
+    }
+
+    // .skrolltriger__card-text
+    &__card-text {
+        width: 100%;
+        flex: 1 1 auto;
+        font-size: 14px;
+        line-height: 16px;
+
+        @media screen and (max-width: $layoutDesktop + "px") {
+            font-size: calc(12px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+            line-height: calc(16 / 14);
+        }
+    }
+
+    &__button {
+        margin-top: 65px;
+    }
+
+    .cubes {
+        margin-top: 93px;
+    }
+}

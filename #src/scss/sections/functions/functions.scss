@@ -1,0 +1,20 @@
+.functions {
+	background: $Black_2 url(../img/functions/bg.svg) no-repeat center 18%;
+	padding: 59px 0;
+
+	@media screen and (max-width: 450px) {
+		padding: 30px 0;
+	}
+
+	// .functions__container
+	&__container {
+	}
+
+	// .functions__tasks
+	&__tasks {
+	}
+
+	// .functions__skrolltriger
+	&__skrolltriger {
+	}
+}
