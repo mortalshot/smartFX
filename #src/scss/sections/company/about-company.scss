@@ -1,0 +1,48 @@
+.about-company {
+	padding: 70px 0 32px;
+
+	@media screen and (max-width: 991px) {
+		padding: 30px 0 0;
+	}
+
+	// .about-company__container
+	&__container {
+		max-width: 829px;
+	}
+
+	// .about-company__title
+	&__title {
+		text-align: center;
+		margin-bottom: 67px;
+
+		@media screen and (max-width: 991px) {
+			margin-bottom: 40px;
+		}
+		@media screen and (max-width: 767px) {
+			margin-bottom: 30px;
+		}
+		@media screen and (max-width: 575px) {
+			margin-bottom: 20px;
+		}
+	}
+
+	// .about-company__text
+	&__text {
+		p {
+			margin: 32px 0;
+			font-size: 20px;
+			line-height: 30px;
+
+			@media screen and (max-width: $layoutDesktop + "px") {
+				font-size: calc(14px + 6 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+				line-height: calc(30 / 20);
+			}
+			@media screen and (max-width: 991px) {
+				margin: 25px 0;
+			}
+			@media screen and (max-width: 767px) {
+				margin: 20px 0;
+			}
+		}
+	}
+}
