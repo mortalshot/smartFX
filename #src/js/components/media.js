@@ -6,7 +6,9 @@ $(document).ready(function () {
     function handleTabletChange(e) {
         if (e.matches) {
             var scene = document.getElementById('scene');
-            var parallaxInstance = new Parallax(scene);
+            if (scene) {
+                var parallaxInstance = new Parallax(scene);
+            }
         }
 
         else {
@@ -16,6 +18,8 @@ $(document).ready(function () {
 
     if (mediaQuerylgMin.matches) {
         var scene = document.getElementById('scene');
-        var parallaxInstance = new Parallax(scene);
+        if (scene) {
+            var parallaxInstance = new Parallax(scene);
+        }
     }
 });

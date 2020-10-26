@@ -43,6 +43,32 @@ document.addEventListener('DOMContentLoaded', function () {
     mediaQuerySmMin.addListener(handleTabletChange);
     function handleTabletChange(e) {
         if (e.matches) {
+            if ($(".skrolltriger__content")) {
+                let st = ScrollTrigger.create({
+                    trigger: ".skrolltriger__content",
+                    pin: ".skrolltriger__content",
+                    start: "top center",
+                    end: "+=670",
+                });
+
+                const cards = gsap.utils.toArray('.skrolltriger__card');
+                cards.forEach(card => {
+                    gsap.to(card, {
+                        opacity: 1,
+                        scrollTrigger: {
+                            trigger: card,
+                            scrub: true,
+                            start: "top 90%",
+                            end: "bottom 55%"
+                        }
+                    })
+                });
+            }
+        }
+    }
+
+    if (mediaQuerySmMin.matches) {
+        if ($(".skrolltriger__content")) {
             let st = ScrollTrigger.create({
                 trigger: ".skrolltriger__content",
                 pin: ".skrolltriger__content",
@@ -63,27 +89,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
             });
         }
-    }
-
-    if (mediaQuerySmMin.matches) {
-        let st = ScrollTrigger.create({
-            trigger: ".skrolltriger__content",
-            pin: ".skrolltriger__content",
-            start: "top center",
-            end: "+=670",
-        });
-
-        const cards = gsap.utils.toArray('.skrolltriger__card');
-        cards.forEach(card => {
-            gsap.to(card, {
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: card,
-                    scrub: true,
-                    start: "top 90%",
-                    end: "bottom 55%"
-                }
-            })
-        });
     }
 });
