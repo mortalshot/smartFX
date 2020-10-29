@@ -1,5 +1,5 @@
 .table {
-	background: #ffffff;
+	background-color: $White;
 	box-shadow: 0px 20px 64px rgba(0, 0, 0, 0.09);
 	border-radius: 8px;
 	padding: 19px 57px 24px;
@@ -124,7 +124,7 @@
 .en-shipper {
 	display: flex;
 	flex: 1 1 auto;
-	
+
 	@media screen and (max-width: 500px) {
 		flex: 0 0 280px;
 		display: flex;
@@ -145,7 +145,7 @@
 	&__ecn {
 		flex: 0 0 23.8%;
 		margin-right: 16px;
-		
+
 		@media screen and (max-width: 500px) {
 			flex: 0 0 80px;
 		}

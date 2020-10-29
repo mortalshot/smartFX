@@ -1,0 +1,145 @@
+.system-components {
+	max-width: 1180px;
+	margin: 0 auto;
+	background: $Black_2 url(../img/system/bg2.svg) no-repeat center 0%;
+	padding: 80px 0 63px;
+	color: $White;
+
+	@media screen and (max-width: 991px) {
+		padding: 50px 0 25px;
+	}
+	@media screen and (max-width: 767px) {
+		padding: 30px 0 10px;
+	}
+	@media screen and (max-width: 400px) {
+		margin: 0 -20px;
+	}
+
+	// .system-components__container
+	&__container {
+		max-width: 1087px;
+		margin: 0 auto;
+		padding: 0 20px;
+
+		@media screen and (min-width: 992px) {
+			padding: 0 30px;
+		}
+	}
+
+	// .system-components__row
+	&__row {
+		align-items: center;
+
+		@media screen and (max-width: 575px) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	// .system-components__left
+	&__left {
+		flex: 1 1 auto;
+		padding-right: 20px;
+	}
+
+	// .system-components__title
+	&__title {
+		margin-bottom: 66px;
+		line-height: 70px;
+
+		@media screen and (max-width: $layoutDesktop + "px") {
+			line-height: calc(70 / 56);
+		}
+		@media screen and (max-width: 991px) {
+			margin-bottom: 40px;
+		}
+		@media screen and (max-width: 767px) {
+			margin-bottom: 25px;
+		}
+		@media screen and (max-width: 767px) {
+			br {
+				display: none;
+			}
+		}
+	}
+
+	// .system-components__step
+	&__step {
+		margin-bottom: 58px;
+
+		@media screen and (max-width: 991px) {
+			margin-bottom: 40px;
+		}
+		@media screen and (max-width: 767px) {
+			margin-bottom: 25px;
+		}
+		@media screen and (max-width: 575px) {
+			margin-bottom: 30px;
+		}
+	}
+
+	// .system-components__step-num
+	&__step-num {
+		font-size: 40px;
+		line-height: 54px;
+		padding-bottom: 16px;
+		position: relative;
+		margin-bottom: 32px;
+
+		@media screen and (max-width: $layoutDesktop + "px") {
+			font-size: calc(24px + 16 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+			line-height: calc(54 / 40);
+		}
+		@media screen and (max-width: 991px) {
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 767px) {
+			padding-bottom: 5px;
+			margin-bottom: 15px;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			width: 156px;
+			height: 2px;
+			background-color: $red;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+
+			@media screen and (max-width: 767px) {
+				width: 125px;
+			}
+		}
+	}
+
+	// .system-components__step-text
+	&__step-text {
+		font-size: 14px;
+		line-height: 19px;
+		max-width: 400px;
+
+		@media screen and (max-width: $layoutDesktop + "px") {
+			font-size: calc(12px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+			line-height: calc(19 / 14);
+		}
+		@media screen and (max-width: 575px) {
+			max-width: inherit;
+		}
+
+		p {
+			margin: 16px 0;
+
+			@media screen and (max-width: 575px) {
+				margin: 10px 0;
+			}
+		}
+	}
+
+	// .system-components__right
+	&__right {
+		flex: 0 0 42.2%;
+	}
+}

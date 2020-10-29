@@ -11,10 +11,10 @@ $(document).ready(function () {
         $(this).toggleClass('active').next().slideToggle(300);
 
         if (!$(this).hasClass('active')) {
-            $(this).closest('.faq__accordion-item').css({ 'background-color': '#fff' })
+            $(this).closest('.accordion__item').css({ 'background-color': '#fff' })
         } else {
-            $('.faq__accordion-item').css({ 'background-color': '#fff' })
-            $(this).closest('.faq__accordion-item').css({ 'background-color': '#142745' })
+            $('.accordion__item').css({ 'background-color': '#fff' })
+            $(this).closest('.accordion__item').css({ 'background-color': '#142745' })
         }
     });
 

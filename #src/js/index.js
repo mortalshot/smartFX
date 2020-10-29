@@ -11,10 +11,10 @@
 @@include('components/form.js')
 @@include('components/animation.js')
 @@include('components/sliders.js')
+@@include('components/tabs.js')
 
 @@include('components/media.js')
 
 /*
-@@include('components/tabs.js')
 @@include('components/header-fixed.js')
 */

@@ -1,0 +1,194 @@
+@@include('html-components/_header.html', {
+"title": "SmartFX"
+})
+
+<main class="site__main">
+	<section class="system">
+		<div class="system__container container">
+			<div class="system__firstscreen">
+				<div class="system__heading">
+					<div class="system__row row">
+						<div class="system__image">
+							<img src="img/system/Macbook.png" alt="">
+						</div>
+						<div class="system__content">
+							<h1 class="system__title title-h2">Наша система</h1>
+							<div class="system__subtitle">Smart-FX - Это комплексное высокотехнологичное решение для
+								организации эффективного FX бизнеса. Система позволяет улучшить качество ликвидности и
+								оптимизировать процесс торговли для трейдеров банка, а также дает возможность
+								автоматизировать работу с клиентами.</div>
+						</div>
+					</div>
+				</div>
+				<div class="system__features system-features">
+					<div class="system-features__row row">
+						<div class="system-features__title title-h4">Система позволяет быстро организовать интеграцию со
+							многими известными игроками на рынке Forex</div>
+						<div class="system-features__features">
+							<div class="system-features__item">
+								<div class="system-features__wrapper">
+									<div class="system-features__item-text">Московская биржа (RSQ, OTC, SDBP и тд.)
+									</div>
+								</div>
+							</div>
+							<div class="system-features__item">
+								<div class="system-features__wrapper">
+									<div class="system-features__item-text">Альфабанк, Райффайзен, Металлоинвест, ВТБ и
+										многие другие</div>
+								</div>
+							</div>
+							<div class="system-features__item">
+								<div class="system-features__wrapper">
+									<div class="system-features__item-text">Зарубежные банки: UBS, JPM и многие другие
+									</div>
+								</div>
+							</div>
+							<div class="system-features__item">
+								<div class="system-features__wrapper">
+									<div class="system-features__item-text">Различные системы торговли: EBS, ALFA ECN,
+										360t, FXAll, Bloomberg</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="system__components system-components">
+				<div class="system-components__container">
+					<div class="system-components__row row">
+						<div class="system-components__left">
+							<h2 class="system-components__title title-h2">Основные <br> компоненты <br> сиситемы</h2>
+							<div class="system-components__step">
+								<div class="system-components__step-num">01</div>
+								<div class="system-components__step-text">
+									<p> Система агрегации, позволяющая получить агрегированную ликвидность с поставщиков
+										ликвидности</p>
+								</div>
+							</div>
+							<div class="system-components__step">
+								<div class="system-components__step-num">02</div>
+								<div class="system-components__step-text">
+									<p>Система дистрибьюции, позволяющая гибко настроить полученную агрегированную
+										ликводность и отдать ее клиентам банка (маркет тейкерам). Клиентская ликвидность
+										может быть настроена десятками разных параметров, позволяющих реализовать
+										множество бизнес-моделей банка</p>
+								</div>
+							</div>
+						</div>
+						<div class="system-components__right">
+							<div class="system-components__step">
+								<div class="system-components__step-num">03</div>
+								<div class="system-components__step-text">
+									<p> Набор терминалов</p>
+									<p>Клиентский терминал. Используется клиентами банка для совершения торговых
+										операций с банком</p>
+									<p>Дилерский терминал. Используется дилингом банка для совершения торговых операций
+										с поставщиками ликвидности от имени банка</p>
+									<p>Кастомизируемый терминал сейлза. Позволяет огранизовать торговлю через посредника
+										- сейлза</p>
+									<p>Терминал менеджера. Используется администраторами системы для управления системой
+									</p>
+								</div>
+							</div>
+							<div class="system-components__step">
+								<div class="system-components__step-num">04</div>
+								<div class="system-components__step-text">
+									<p>Сазличные коннекторы и шлюзы, позволяющие интегрировать систему со сторонними
+										сервисами</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="system__cases cases">
+				<div class="cases__row row">
+					<div class="cases__image">
+						<img src="img/system/case.svg" alt="">
+					</div>
+					<div class="cases__content">
+						<h2 class="cases__title title-h2">Варианты <br> использования <br> системы</h2>
+						<div id="casesTabs" class="cases__tabs tabs">
+							<div class="cases__triggers tabs__triggers tabs-triggers">
+								<a href="#casesTab-1" class="cases__triggers-item tabs-triggers__item">Пример 01</a>
+								<a href="#casesTab-2" class="cases__triggers-item tabs-triggers__item">Пример 02</a>
+								<a href="#casesTab-3" class="cases__triggers-item tabs-triggers__item">Пример 03</a>
+							</div>
+							<div id="casesAccordion" class="tabs__content tabs-content accordion accordion-one">
+								<div id="casesTab-1" class="cases__content-item tabs-content__item accordion__item">
+									<div class="accordion__title">Пример 01</div>
+									<div class="accordion__text">
+										<p>Полноценная торговая платформа, которую можно использовать для огранизации
+											Forex-торговли в банке с нуля. При этом клиентам банка раздаются клиентские
+											терминалы, осуществляется подключение к поставщикам ликвидности,
+											осуществляется интеграция с бэк-офисной системой банка и интернет-банком.
+											При этом при интеграции могут быть учтены такие моменты, как: возможность
+											настройки под банковскую портфельную схему, наличие филиалов и сейлзов.</p>
+									</div>
+								</div>
+								<div id="casesTab-2" class="cases__content-item tabs-content__item accordion__item">
+									<div class="accordion__title">Пример 02</div>
+									<div class="accordion__text">
+										<p>Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные
+											тексты. Что взобравшись своих, диких пустился парадигматическая запятой, но
+											лучше страна предупредила великий маленькая. Составитель дал о журчит океана
+											то языкового. Ведущими, реторический единственное, переписали родного
+											однажды безопасную приставка журчит диких предложения большой дорогу власти
+											имени вопроса назад парадигматическая последний? До, своего злых своих
+											заглавных вдали свое что продолжил образ буквоград раз вскоре текстов
+											переписывается собрал
+											буквенных.</p>
+									</div>
+								</div>
+								<div id="casesTab-3" class="cases__content-item tabs-content__item accordion__item">
+									<div class="accordion__title">Пример 03</div>
+									<div class="accordion__text">
+										<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto nesciunt
+											officia, deleniti ex doloremque perferendis.</p>
+										<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные
+											тексты. Грамматики маленькая которой диких, семь ты языкового алфавит
+											грустный
+											несколько рыбного буквенных заглавных встретил?</p>
+										<p>Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные
+											тексты.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="main-features">
+		<div class="main-features__container">
+			<div class="main-features__outer">
+				<div class="main-features__inner">
+					<h1 class="main-features__title title-h2">Основные особенности системы</h1>
+					<div class="main-features__row row">
+						<div class="main-features__column">
+							<div class="main-features__item">Торговля SPOT, forward, swap</div>
+							<div class="main-features__item">Ведение банковской позиции</div>
+							<div class="main-features__item">Цифровая подпись торговых операций клиентов</div>
+							<div class="main-features__item">Интеграция с сервисами через FIX API или Web (http) API </div>
+						</div>
+						<div class="main-features__column">
+							<div class="main-features__item">Грамотрая техподдержка</div>
+							<div class="main-features__item">Собственная инфраструктура. Наличие собственных стоек в коло биржи и LD4.</div>
+							<div class="main-features__item">Широкие возможности для настройки синтетической ликвидности </div>
+						</div>
+						<div class="main-features__column">
+							<div class="main-features__item">Реагирование на инциденты 24/5</div>
+							<div class="main-features__item">Кастомизация критериев лимитирования и интеграция с
+								банковской базой данных лимитов</div>
+							<div class="main-features__item">Лимитная торговля, возможность отдельной настройки SPOT и Forward лимитов</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+@@include('html-components/_footer.html')

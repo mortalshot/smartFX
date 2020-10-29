@@ -1,0 +1,112 @@
+.system-features {
+	// .system-features__row
+	&__row {
+		align-items: center;
+
+		@media screen and (max-width: 575px) {
+			flex-direction: column;
+		}
+	}
+
+	// .system-features__title
+	&__title {
+		padding-right: 100px;
+		width: 100%;
+		max-width: 440px;
+		line-height: 34px;
+
+		@media screen and (max-width: $layoutDesktop + "px") {
+			line-height: calc(34 / 24);
+		}
+		@media screen and (max-width: 991px) {
+			padding-right: 50px;
+			max-width: 390px;
+		}
+		@media screen and (max-width: 767px) {
+			padding-right: 20px;
+		}
+		@media screen and (max-width: 575px) {
+			padding: 0;
+			max-width: inherit;
+			margin-bottom: 10px;
+		}
+	}
+
+	// .system-features__features
+	&__features {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -30px;
+
+		@media screen and (max-width: 991px) {
+			margin: 0 -20px;
+		}
+		@media screen and (max-width: 767px) {
+			margin: 0 -7.5px;
+		}
+		@media screen and (max-width: 450px) {
+			margin: 0;
+		}
+	}
+
+	// .system-features__item
+	&__item {
+		flex: 0 0 50%;
+		padding: 18px 30px;
+		display: flex;
+
+		@media screen and (max-width: 991px) {
+			padding: 15px 20px;
+		}
+		@media screen and (max-width: 767px) {
+			padding: 10px 7.5px;
+		}
+		@media screen and (max-width: 450px) {
+			flex: 0 0 100%;
+			padding: 5px 0;
+		}
+	}
+
+	&__wrapper {
+		width: 100%;
+		min-height: 100px;
+		background: #ffffff;
+		box-shadow: 0px 20px 64px rgba(0, 0, 0, 0.09);
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		padding: 15px 20px 15px 40px;
+		position: relative;
+
+		@media screen and (max-width: 767px) {
+			padding: 10px 20px;
+		}
+		@media screen and (max-width: 450px) {
+			min-height: auto;
+			padding: 20px;
+		}
+
+		&::before {
+			content: "";
+			display: inline-block;
+			height: 100%;
+			width: 4px;
+			background-color: #e62d3c;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: 8px 0 0 8px;
+		}
+	}
+
+	// .system-features__item-text
+	&__item-text {
+		font-size: 16px;
+		line-height: 23px;
+
+		@media screen and (max-width: $layoutDesktop + "px") {
+			font-size: calc(14px + 2 * ((100vw - #{$layoutMobile}px) / (#{$layoutDesktop} - #{$layoutMobile})));
+			line-height: calc(23 / 16);
+		}
+	}
+}
